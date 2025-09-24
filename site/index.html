@@ -332,12 +332,11 @@
                     <div class="prompt">root@event:~$</div>
                     <div class="command">./show_details.sh</div>
                     <div class="output">
-                        <p><span class="prompt">[DATE]</span> Sábado, 15 de Febrero 2025</p>
-                        <p><span class="prompt">[TIME]</span> 15:00 - 18:00 hrs</p>
-                        <p><span class="prompt">[LOCATION]</span> Casa de la Familia</p>
-                        <p><span class="prompt">[ADDRESS]</span> Calle Principal #123</p>
-                        <p><span class="prompt">[CODE]</span> Guadalajara, Jalisco</p>
-                        <p><span class="prompt">[SECURITY]</span> Acceso autorizado para invitados</p>
+                        <p><span class="prompt bold">[DATE]</span> Sábado, 12 de Octubre 2025</p>
+                        <p><span class="prompt bold">[TIME]</span> 16:00 - 20:00 hrs</p>
+                        <p><span class="prompt">[LOCATION]</span> Casa Teodora</p>
+			<p><span class="prompt">[ADDRESS]</span>Calle Justo Sierra 1828</p>
+                        <p><span class="prompt">[CODE]</span>Guadalajara, Jalisco</p>
                     </div>
                 </div>
             </div>
@@ -430,7 +429,7 @@
             </div>
             <div class="terminal-content">
                 <div class="prompt">host@contact:~$</div>
-                <div class="command">display --contact-details</div>
+                <div class="command">cat contact.conf</div>
                 <div class="output">
                     <p><span class="prompt">[CONTACT]</span> Para dudas o información adicional:</p>
                     <p><span class="prompt">[PHONE]</span> +52 123 456 7890</p>
@@ -438,7 +437,7 @@
                     <p><span class="prompt">[STATUS]</span> Sistema de mensajería habilitado 24/7</p>
                     <br>
                     <p style="text-align: center; color: #4ecdc4; font-size: 1.1rem;">
-                        <span class="prompt">[FINAL_MESSAGE]</span><br>
+                        <span class="prompt cursor">[FINAL_MESSAGE]</span><br>
                         ¡Esperamos verte en la celebración de Juliancito!<br>
                         >>> LOADING HAPPINESS... 100% COMPLETE <<<
                     </p>
@@ -446,24 +445,7 @@
             </div>
         </div>
     </div>
-    
     <script>
-        // Efecto Matrix en el fondo
-        function createMatrix() {
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+-=[]{}|;:,.<>?';
-            const matrixBg = document.getElementById('matrixBg');
-            
-            for (let i = 0; i < 50; i++) {
-                const span = document.createElement('span');
-                span.className = 'matrix-char';
-                span.textContent = chars[Math.floor(Math.random() * chars.length)];
-                span.style.left = Math.random() * 100 + 'vw';
-                span.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                span.style.animationDelay = Math.random() * 2 + 's';
-                matrixBg.appendChild(span);
-            }
-        }
-        
         // Efecto de typing en algunos elementos
         function typeWriter(element, text, speed = 50) {
             let i = 0;
@@ -478,15 +460,6 @@
             typing();
         }
         
-        // Placeholder para el link RSVP
-        document.getElementById('rsvpLink').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Aquí irá tu link personalizado para el RSVP. Reemplaza el href="#" con tu URL.');
-        });
-        
-        // Inicializar efectos
-        createMatrix();
-        
         // Agregar efecto de parpadeo al cursor
         setInterval(() => {
             const cursors = document.querySelectorAll('.typing-effect');
@@ -494,6 +467,10 @@
                 cursor.style.borderRight = cursor.style.borderRight === 'none' ? '2px solid #00ff41' : 'none';
             });
         }, 500);
+	const typeElements = document.querySelectorAll('.cursor');
+	typeElements.forEach((element) => {
+	  typeWriter(element, '...');
+	});
     </script>
 </body>
 </html>
