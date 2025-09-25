@@ -1,0 +1,305 @@
+<!doctype html>
+<html>
+    <head>
+        <title>RSVP Confirmed - Juliancito Baby Shower</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap");
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Source Code Pro", monospace;
+                background: linear-gradient(
+                    135deg,
+                    #0a0a0a 0%,
+                    #1a1a2e 50%,
+                    #16213e 100%
+                );
+                color: #00ff41;
+                text-align: center;
+                padding: 20px;
+                margin: 0;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .terminal {
+                background: rgba(0, 0, 0, 0.95);
+                border: 2px solid #00ff41;
+                border-radius: 8px;
+                padding: 40px;
+                max-width: 600px;
+                width: 100%;
+                box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+                backdrop-filter: blur(5px);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .scan-line {
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    #00ff41,
+                    transparent
+                );
+                animation: scan 3s linear infinite;
+            }
+
+            @keyframes scan {
+                0% {
+                    left: -100%;
+                }
+                100% {
+                    left: 100%;
+                }
+            }
+
+            .terminal-header {
+                background: rgba(0, 255, 65, 0.1);
+                margin: -40px -40px 30px -40px;
+                padding: 15px 20px;
+                border-bottom: 1px solid #00ff41;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .terminal-buttons {
+                display: flex;
+                gap: 5px;
+            }
+
+            .terminal-button {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+            }
+
+            .close {
+                background: #ff5f57;
+            }
+            .minimize {
+                background: #ffbd2e;
+            }
+            .maximize {
+                background: #28ca42;
+            }
+
+            .terminal-title {
+                color: #00ff41;
+                font-size: 14px;
+                margin-left: 10px;
+                font-weight: 600;
+            }
+
+            .success {
+                color: #4ecdc4;
+                font-weight: 600;
+            }
+            .prompt {
+                color: #ff6b6b;
+                font-weight: bold;
+            }
+            .info {
+                color: #00ff41;
+            }
+
+            .ascii-art {
+                font-size: 10px;
+                line-height: 1;
+                margin: 20px 0;
+                color: #4ecdc4;
+                white-space: pre;
+            }
+
+            h1 {
+                color: #00ff41;
+                text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+                margin-bottom: 20px;
+                font-size: 1.5rem;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+
+            .data-section {
+                background: rgba(0, 0, 0, 0.3);
+                border: 1px solid #4ecdc4;
+                border-radius: 4px;
+                padding: 20px;
+                margin: 20px 0;
+                text-align: left;
+            }
+
+            .data-line {
+                margin: 8px 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .glitch {
+                animation: glitch 2s infinite;
+            }
+
+            @keyframes glitch {
+                0%,
+                98% {
+                    transform: translate(0);
+                }
+                1% {
+                    transform: translate(-1px, 1px);
+                }
+                2% {
+                    transform: translate(1px, -1px);
+                }
+            }
+
+            .back-link {
+                display: inline-block;
+                margin-top: 20px;
+                color: #4ecdc4;
+                text-decoration: none;
+                border: 1px solid #4ecdc4;
+                padding: 10px 20px;
+                border-radius: 4px;
+                transition: all 0.3s ease;
+            }
+
+            .back-link:hover {
+                background: #4ecdc4;
+                color: #000;
+                text-shadow: none;
+            }
+
+            @media (max-width: 768px) {
+                .terminal {
+                    padding: 20px;
+                }
+                .terminal-header {
+                    margin: -20px -20px 20px -20px;
+                }
+                .ascii-art {
+                    font-size: 8px;
+                }
+                .data-line {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 5px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="terminal">
+            <div class="scan-line"></div>
+
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                </div>
+                <div class="terminal-title">
+                    rsvp@juliancito:~$ ./confirmed.sh
+                </div>
+            </div>
+
+            <div class="ascii-art">
+                ██████╗ ██████╗ ███╗ ██╗███████╗██╗██████╗ ███╗
+                ███╗███████╗██████╗ ██╔════╝██╔═══██╗████╗
+                ██║██╔════╝██║██╔══██╗████╗ ████║██╔════╝██╔══██╗ ██║ ██║
+                ██║██╔██╗ ██║█████╗ ██║██████╔╝██╔████╔██║█████╗ ██║ ██║ ██║ ██║
+                ██║██║╚██╗██║██╔══╝ ██║██╔══██╗██║╚██╔╝██║██╔══╝ ██║ ██║
+                ╚██████╗╚██████╔╝██║ ╚████║██║ ██║██║ ██║██║ ╚═╝
+                ██║███████╗██████╔╝ ╚═════╝ ╚═════╝ ╚═╝ ╚═══╝╚═╝ ╚═╝╚═╝ ╚═╝╚═╝
+                ╚═╝╚══════╝╚═════╝
+            </div>
+
+            <h1 class="glitch">RSVP CONFIRMADO</h1>
+
+            <div class="data-section">
+                <div class="data-line">
+                    <span class="prompt">[STATUS]</span>
+                    <span class="success">✅ GUARDADO EXITOSAMENTE</span>
+                </div>
+
+                <div class="data-line">
+                    <span class="prompt">[GUEST]</span>
+                    <span class="info" id="guestName">-</span>
+                </div>
+
+                <div class="data-line">
+                    <span class="prompt">[ATTENDING]</span>
+                    <span id="attendingStatus">-</span>
+                </div>
+
+                <div class="data-line">
+                    <span class="prompt">[GUESTS]</span>
+                    <span class="info" id="guestCount">-</span>
+                </div>
+
+                <div class="data-line">
+                    <span class="prompt">[TIMESTAMP]</span>
+                    <span class="info" id="timestamp">-</span>
+                </div>
+
+                <div class="data-line">
+                    <span class="prompt">[SESSION_ID]</span>
+                    <span class="info" id="sessionId">-</span>
+                </div>
+            </div>
+
+            <p class="success">
+                <span class="prompt">[SUCCESS]</span>
+                ¡Gracias por confirmar tu asistencia al Baby Shower de
+                Juliancito!
+            </p>
+
+            <p class="info">Sistema actualizado - Conexión cerrada</p>
+
+            <a href="javascript:history.back()" class="back-link"
+                >← VOLVER AL SISTEMA</a
+            >
+        </div>
+
+        <script>
+            // Obtener parámetros de la URL
+            const params = new URLSearchParams(window.location.search);
+
+            document.getElementById("guestName").textContent =
+                params.get("name") || "N/A";
+            document.getElementById("guestCount").textContent =
+                `+${params.get("guests") || "0"} acompañantes`;
+            document.getElementById("sessionId").textContent =
+                `#${params.get("id") || "unknown"}`;
+
+            const attending = params.get("attending") === "true";
+            const attendingEl = document.getElementById("attendingStatus");
+            attendingEl.textContent = attending
+                ? "✅ SÍ ASISTIRÁ"
+                : "❌ NO ASISTIRÁ";
+            attendingEl.className = attending ? "success" : "prompt";
+
+            const timestamp = params.get("timestamp");
+            if (timestamp) {
+                document.getElementById("timestamp").textContent = new Date(
+                    timestamp,
+                ).toLocaleString("es-MX");
+            }
+        </script>
+    </body>
+</html>
