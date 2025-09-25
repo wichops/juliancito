@@ -264,6 +264,10 @@
         }
 
         @media (max-width: 768px) {
+            .rsvp-button {
+                width: 100%;
+            }
+
             .glitch {
                 font-size: 2rem;
                 letter-spacing: 2px;
@@ -297,8 +301,7 @@
         .form-group select {
             width: 100%;
             background: rgba(0, 0, 0, 0.5);
-            border: 1px solid #4ecdc4;
-            border-radius: 4px;
+            border-bottom: 1px solid #4ecdc4;
             padding: 12px 15px;
             color: #00ff41;
             font-family: 'Source Code Pro', monospace;
@@ -368,6 +371,10 @@
             margin: auto;
             width: 100%;
             max-width: 400px;
+        }
+
+        .sm {
+            font-size: 0.8rem;
         }
     </style>
 </head>
@@ -453,15 +460,16 @@
                 <div class="output">
                     <p><span class="prompt">[QUERY]</span> Ejecutando búsqueda de regalos recomendados...</p>
                     <div class="gift-list">
-                        <div class="gift-item">Pañales (talla 1-24 meses)</div>
-                        <div class="gift-item">Productos para bebé (jabón, shampoo)</div>
-                        <div class="gift-item">Ropita (talla 3-24 meses)</div>
+                        <div class="gift-item">Pañales (talla 3-12 meses)</div>
+                        <div class="gift-item">Cositas de higiene como jabón, shampoo, toallitas húmedas</div>
+                        <div class="gift-item">Cositas varias como peine, toalla, juguetitos</div>
+                        <div class="gift-item">Ropita como calcetines, pantaloncito, suetersito, cobijita (talla 3-12 meses)</div>
                         <div class="gift-item">¿No está en la lista pero se te hace chido para Juliancito? Tú traélo</div>
                     </div>
-                    <p><span class="prompt bold">[NOTE]</span> Tu <s>transferencia</s> presencia es el mejor regalo</p>
-                    <p><span class="prompt bold">[CLABE]</span> 638180000173930483</p>
-                    <p><span class="prompt bold">[BANCO]</span> Nu Bank</p>
-                    <p><span class="prompt bold">[NOMBRE]</span> Luis Argumedo</p>
+                    <p><span class="prompt">[NOTE]</span> Tu <s>transferencia</s> presencia es el mejor regalo</p>
+                    <p class="sm"> <span class="prompt">[CLABE]</span> 638180000173930483</p>
+                    <p class="sm"><span class="prompt">[BANCO]</span> Nu Bank</p>
+                    <p class="sm"><span class="prompt">[NOMBRE]</span> Luis Argumedo</p>
                 </div>
             </div>
         </div>
