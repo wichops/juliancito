@@ -126,7 +126,7 @@
 
         .subtitle {
             color: #4ecdc4;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-top: 10px;
         }
 
@@ -158,11 +158,13 @@
         }
 
         .rsvp-button {
-            display: inline-block;
+            font-family: "Source Code Pro";
+            display: block;
             background: linear-gradient(45deg, #00ff41, #4ecdc4);
             color: #000;
             text-decoration: none;
             padding: 15px 40px;
+            border: none;
             border-radius: 5px;
             font-weight: 700;
             font-size: 1.1rem;
@@ -171,7 +173,9 @@
             transition: all 0.3s ease;
             box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
             position: relative;
+            margin: auto;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .rsvp-button:hover {
@@ -313,15 +317,15 @@
         .radio-group {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-top: 8px;
+            gap: 8px;
         }
 
-        .radio-option {
+        .radio-group .radio-option {
+            margin-bottom: 0;
             display: flex;
             align-items: center;
             cursor: pointer;
-            padding: 8px 0;
+            padding: 4px 0;
             transition: all 0.2s ease;
         }
 
@@ -330,31 +334,37 @@
         }
 
         .radio-custom {
-            content: '☐'
             width: 16px;
             height: 16px;
-            border: 2px solid #4ecdc4;
-            border-radius: 50%;
             margin-right: 12px;
             position: relative;
             transition: all 0.3s ease;
         }
 
-        .radio-option input[type="radio"]:checked + .radio-custom {
-            border-color: #00ff41;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+        .radio-text {
+            font-size: 16px;
+        }
+
+        .radio-option input[type="radio"] ~ .radio-text {
+            color: #ff5f57;
+        }
+
+        .radio-option input[type="radio"]:checked ~ .radio-text {
+            color: #00ff41;
         }
 
         .radio-option input[type="radio"]:checked + .radio-custom::after {
             content: '▣';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 8px;
-            height: 8px;
-            background: #00ff41;
-            border-radius: 50%;
+            top: -4px;
+            left: 23px;
+            width: 20px;
+            height: 20px;
+            font-size: 16px;
+        }
+
+        .hero-img {
+            width: 100%;
         }
     </style>
 </head>
@@ -395,7 +405,8 @@
 ██████╔╝██║  ██║██████╔╝   ██║       ███████║██║  ██║╚██████╔╝╚███╔███╔╝███████╗██║  ██║
 ╚═════╝ ╚═╝  ╚═╝╚═════╝    ╚═╝       ╚══════╝╚═╝  ╚═╝ ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
                     </div>
-                    <p><span class="prompt">[INFO]</span> Inicializando protocolo de celebración...</p>
+                    <img class="hero-img" src="juliancito.jpg" />
+                    <p><span class="prompt">[INFO]</span> Inicializando protocolo de celebreishon...</p>
                     <p><span class="prompt">[SUCCESS]</span> Bebé detectado: JULIANCITO</p>
                 </div>
             </div>
@@ -422,28 +433,6 @@
                     </div>
                 </div>
             </div>
-
-            <!--<div class="terminal">
-                <div class="terminal-header">
-                    <div class="terminal-buttons">
-                        <div class="terminal-button close"></div>
-                        <div class="terminal-button minimize"></div>
-                        <div class="terminal-button maximize"></div>
-                    </div>
-                    <div class="terminal-title">mission_briefing.txt</div>
-                </div>
-                <div class="terminal-content">
-                    <div class="prompt">admin@mission:~$</div>
-                    <div class="command">cat mission_objectives.txt</div>
-                    <div class="output">
-                        <p><span class="prompt">[MISSION]</span> Celebrar la llegada del pequeño Juliancito</p>
-                        <p><span class="prompt">[OBJECTIVE]</span> Reunir a familia y amigos</p>
-                        <p><span class="prompt">[PROTOCOL]</span> Diversión, regalos y mucho amor</p>
-                        <p><span class="prompt">[DRESS_CODE]</span> Casual/Cómodo</p>
-                        <p><span class="prompt">[THEME]</span> Azul/Celeste para el pequeño hacker</p>
-                    </div>
-                </div>
-            </div>-->
         </div>
 
         <div class="terminal">
@@ -487,10 +476,10 @@
                     <div class="command">./confirm_attendance.sh</div>
                     <div class="output">
                         <p><span class="prompt">[REQUEST]</span> Se requiere confirmación de asistencia</p>
-                        <form id="rsvpForm" class="rsvp-form">
+                        <form id="rsvpForm" class="rsvp-form" action="https://function-bun-production-8dc7.up.railway.app/rsvp" method="POST">
                             <div class="form-group">
                                 <label class="prompt">[GUEST_NAME]</label>
-                                <input type="text" id="name" name="name" required placeholder="Ingresa tu nombre completo">
+                                <input type="text" id="name" name="name" autocomplete="false" placeholder="Nombre, apodo, CURP...">
                             </div>
 
                             <div class="form-group">
@@ -499,12 +488,12 @@
                                     <label class="radio-option">
                                         <input type="radio" name="attending" value="yes" checked>
                                         <span class="radio-custom"></span>
-                                        <span class="success">▣ VOYIR</span>
+                                        <span class="radio-text">☐ VOYIR</span>
                                     </label>
                                     <label class="radio-option">
                                         <input type="radio" name="attending" value="no">
                                         <span class="radio-custom"></span>
-                                        <span class="prompt">☐ NO VOYIR</span>
+                                        <span class="radio-text">☐ NO VOYIR</span>
                                     </label>
                                 </div>
                             </div>
@@ -517,20 +506,11 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <label class="prompt">[PHONE] (opcional)</label>
-                                <input type="email" id="email" name="email" placeholder="correo@ejemplo.com">
-                            </div>
-
                             <button type="submit" class="rsvp-button">
-                                <span class="button-text">ENVIAR CONFIRMACIÓN</span>
+                                <span class="button-text">CONFIRMAR ASISTENCIA</span>
                                 <span class="loading-text" style="display: none;">PROCESANDO...</span>
                             </button>
                         </form>
-                        <br>
-                        <a href="#" class="rsvp-button" id="rsvpLink">CONFIRMAR ASISTENCIA</a>
-                        <br><br>
-                        <p><span class="prompt">[INFO]</span> Haz clic para acceder al formulario RSVP</p>
                     </div>
                 </div>
             </div>
