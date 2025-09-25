@@ -6,13 +6,13 @@
     <title>Baby Shower Juliancito - Terminal Access</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap');
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Source Code Pro', monospace;
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
@@ -21,7 +21,7 @@
             overflow-x: hidden;
             position: relative;
         }
-        
+
         .matrix-bg {
             position: fixed;
             top: 0;
@@ -32,7 +32,7 @@
             z-index: 0;
             opacity: 0.1;
         }
-        
+
         .container {
             position: relative;
             z-index: 1;
@@ -41,7 +41,7 @@
             padding: 20px;
             min-height: 100vh;
         }
-        
+
         .terminal {
             background: rgba(0, 0, 0, 0.9);
             border: 2px solid #00ff41;
@@ -51,7 +51,7 @@
             overflow: hidden;
             backdrop-filter: blur(5px);
         }
-        
+
         .terminal-header {
             background: rgba(0, 255, 65, 0.1);
             padding: 10px 15px;
@@ -60,52 +60,52 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .terminal-buttons {
             display: flex;
             gap: 5px;
         }
-        
+
         .terminal-button {
             width: 12px;
             height: 12px;
             border-radius: 50%;
         }
-        
+
         .close { background: #ff5f57; }
         .minimize { background: #ffbd2e; }
         .maximize { background: #28ca42; }
-        
+
         .terminal-title {
             color: #00ff41;
             font-size: 14px;
             margin-left: 10px;
         }
-        
+
         .terminal-content {
             padding: 20px;
             line-height: 1.6;
         }
-        
+
         .prompt {
             color: #ff6b6b;
             font-weight: 600;
         }
-        
+
         .command {
             color: #4ecdc4;
         }
-        
+
         .output {
             color: #00ff41;
             margin: 10px 0;
         }
-        
+
         .header {
             text-align: center;
             margin-bottom: 30px;
         }
-        
+
         .glitch {
             font-size: 3rem;
             font-weight: 700;
@@ -115,7 +115,7 @@
             letter-spacing: 5px;
             animation: glitch 2s infinite;
         }
-        
+
         @keyframes glitch {
             0%, 98% { transform: translate(0); }
             1% { transform: translate(-2px, 2px); }
@@ -123,40 +123,40 @@
             3% { transform: translate(-2px, 2px); }
             4% { transform: translate(2px, -2px); }
         }
-        
+
         .subtitle {
             color: #4ecdc4;
             font-size: 1.2rem;
             margin-top: 10px;
         }
-        
+
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin: 30px 0;
         }
-        
+
         .typing-effect {
             border-right: 2px solid #00ff41;
             animation: typing 3s steps(30) infinite, blink 1s infinite;
         }
-        
+
         @keyframes typing {
             0%, 50% { width: 0; }
             100% { width: 100%; }
         }
-        
+
         @keyframes blink {
             0%, 50% { border-color: #00ff41; }
             51%, 100% { border-color: transparent; }
         }
-        
+
         .rsvp-section {
             text-align: center;
             margin: 40px 0;
         }
-        
+
         .rsvp-button {
             display: inline-block;
             background: linear-gradient(45deg, #00ff41, #4ecdc4);
@@ -173,12 +173,12 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .rsvp-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 30px rgba(0, 255, 65, 0.5);
         }
-        
+
         .rsvp-button::before {
             content: '';
             position: absolute;
@@ -189,16 +189,16 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
-        
+
         .rsvp-button:hover::before {
             left: 100%;
         }
-        
+
         .scan-line {
             position: relative;
             overflow: hidden;
         }
-        
+
         .scan-line::after {
             content: '';
             position: absolute;
@@ -209,12 +209,12 @@
             background: linear-gradient(90deg, transparent, #00ff41, transparent);
             animation: scan 2s linear infinite;
         }
-        
+
         @keyframes scan {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(100%); }
         }
-        
+
         .ascii-art {
             font-size: 0.36rem;
             line-height: 1;
@@ -223,7 +223,7 @@
             margin: 16px 0;
             white-space: pre;
         }
-        
+
         .matrix-char {
             position: absolute;
             color: #00ff41;
@@ -231,12 +231,12 @@
             animation: fall linear infinite;
             opacity: 0.7;
         }
-        
+
         @keyframes fall {
             0% { transform: translateY(-100vh); opacity: 1; }
             100% { transform: translateY(100vh); opacity: 0; }
         }
-        
+
         .gift-list {
             background: rgba(0, 0, 0, 0.5);
             border: 1px solid #4ecdc4;
@@ -244,46 +244,129 @@
             padding: 15px;
             margin: 15px 0;
         }
-        
+
         .gift-item {
             color: #00ff41;
             margin: 5px 0;
             padding-left: 20px;
             position: relative;
         }
-        
+
         .gift-item::before {
             content: '>';
             position: absolute;
             left: 0;
             color: #ff6b6b;
         }
-        
+
         @media (max-width: 768px) {
             .glitch {
                 font-size: 2rem;
                 letter-spacing: 2px;
             }
-            
+
             .info-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .container {
                 padding: 10px;
             }
+        }
+
+        .rsvp-form {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .form-group {
+            margin: 20px 0;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #4ecdc4;
+            border-radius: 4px;
+            padding: 12px 15px;
+            color: #00ff41;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #00ff41;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px 0;
+            transition: all 0.2s ease;
+        }
+
+        .radio-option input[type="radio"] {
+            display: none;
+        }
+
+        .radio-custom {
+            content: '☐'
+            width: 16px;
+            height: 16px;
+            border: 2px solid #4ecdc4;
+            border-radius: 50%;
+            margin-right: 12px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .radio-option input[type="radio"]:checked + .radio-custom {
+            border-color: #00ff41;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+        }
+
+        .radio-option input[type="radio"]:checked + .radio-custom::after {
+            content: '▣';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: #00ff41;
+            border-radius: 50%;
         }
     </style>
 </head>
 <body>
     <div class="matrix-bg" id="matrixBg"></div>
-    
+
     <div class="container">
         <div class="header">
             <h1 class="glitch">JULIANCITO SHOWER</h1>
             <p class="subtitle">>>> ACCESSING JULIANCITO.SH <<<</p>
         </div>
-        
+
         <div class="terminal">
             <div class="terminal-header">
                 <div class="terminal-buttons">
@@ -298,14 +381,14 @@
                 <div class="command">cat baby_shower_info.txt</div>
                 <div class="output scan-line">
                     <div class="ascii-art">
-     ██╗██╗   ██╗██╗     ██╗ █████╗ ███╗   ██╗ ██████╗██╗████████╗ ██████╗ 
+     ██╗██╗   ██╗██╗     ██╗ █████╗ ███╗   ██╗ ██████╗██╗████████╗ ██████╗
      ██║██║   ██║██║     ██║██╔══██╗████╗  ██║██╔════╝██║╚══██╔══╝██╔═══██╗
      ██║██║   ██║██║     ██║███████║██╔██╗ ██║██║     ██║   ██║   ██║   ██║
 ██   ██║██║   ██║██║     ██║██╔══██║██║╚██╗██║██║     ██║   ██║   ██║   ██║
 ╚█████╔╝╚██████╔╝███████╗██║██║  ██║██║ ╚████║╚██████╗██║   ██║   ╚██████╔╝
- ╚════╝  ╚═════╝ ╚══════╝╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝╚═╝   ╚═╝    ╚═════╝ 
-                                                                            
-██████╗  █████╗ ██████╗ ██╗   ██╗    ███████╗██╗  ██╗ ██████╗ ██╗    ██╗███████╗██████╗ 
+ ╚════╝  ╚═════╝ ╚══════╝╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝╚═╝   ╚═╝    ╚═════╝
+
+██████╗  █████╗ ██████╗ ██╗   ██╗    ███████╗██╗  ██╗ ██████╗ ██╗    ██╗███████╗██████╗
 ██╔══██╗██╔══██╗██╔══██╗╚██╗ ██╔╝    ██╔════╝██║  ██║██╔═══██╗██║    ██║██╔════╝██╔══██╗
 ██████╔╝███████║██████╔╝ ╚████╔╝     ███████╗███████║██║   ██║██║ █╗ ██║█████╗  ██████╔╝
 ██╔══██╗██╔══██║██╔══██╗  ╚██╔╝      ╚════██║██╔══██║██║   ██║██║███╗██║██╔══╝  ██╔══██╗
@@ -317,7 +400,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="info-grid">
             <div class="terminal">
                 <div class="terminal-header">
@@ -332,16 +415,15 @@
                     <div class="prompt">root@event:~$</div>
                     <div class="command">./show_details.sh</div>
                     <div class="output">
-                        <p><span class="prompt bold">[DATE]</span> Sábado, 12 de Octubre 2025</p>
+                        <p><span class="prompt bold">[DATE]</span> Sábado, 11 de Octubre 2025</p>
                         <p><span class="prompt bold">[TIME]</span> 16:00 - 20:00 hrs</p>
                         <p><span class="prompt">[LOCATION]</span> Casa Teodora</p>
-			<p><span class="prompt">[ADDRESS]</span>Calle Justo Sierra 1828</p>
-                        <p><span class="prompt">[CODE]</span>Guadalajara, Jalisco</p>
+             			<p><span class="prompt">[ADDRESS]</span> Calle Justo Sierra 1828</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="terminal">
+
+            <!--<div class="terminal">
                 <div class="terminal-header">
                     <div class="terminal-buttons">
                         <div class="terminal-button close"></div>
@@ -361,9 +443,9 @@
                         <p><span class="prompt">[THEME]</span> Azul/Celeste para el pequeño hacker</p>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
-        
+
         <div class="terminal">
             <div class="terminal-header">
                 <div class="terminal-buttons">
@@ -375,23 +457,21 @@
             </div>
             <div class="terminal-content">
                 <div class="prompt">guest@gifts:~$</div>
-                <div class="command">query --show-suggestions</div>
+                <div class="command">head -n 6 gifts.txt</div>
                 <div class="output">
                     <p><span class="prompt">[QUERY]</span> Ejecutando búsqueda de regalos recomendados...</p>
                     <div class="gift-list">
-                        <div class="gift-item">Ropa de bebé (0-6 meses)</div>
-                        <div class="gift-item">Pañales (talla recién nacido y 1)</div>
+                        <div class="gift-item">Ropa de bebé (6-18 meses)</div>
+                        <div class="gift-item">Pañales (talla 1-24 meses)</div>
                         <div class="gift-item">Productos para bebé (jabón, shampoo)</div>
-                        <div class="gift-item">Mantas y cobijas suaves</div>
-                        <div class="gift-item">Juguetes para recién nacido</div>
-                        <div class="gift-item">Biberones y accesorios</div>
-                        <div class="gift-item">Libros de cuentos infantiles</div>
+                        <div class="gift-item">Ropita (talla 3-24 meses)</div>
+                        <div class="gift-item">¿No está en la lista pero se te hace chido para Juliancito? Lo aceptamos</div>
                     </div>
-                    <p><span class="prompt">[NOTE]</span> Tu presencia es el mejor regalo</p>
+                    <p><span class="prompt bold">[NOTE]</span> Tu presencia es el mejor regalo</p>
                 </div>
             </div>
         </div>
-        
+
         <div class="rsvp-section">
             <div class="terminal">
                 <div class="terminal-header">
@@ -406,9 +486,47 @@
                     <div class="prompt">system@rsvp:~$</div>
                     <div class="command">./confirm_attendance.sh</div>
                     <div class="output">
-                        <p><span class="prompt">[SYSTEM]</span> Sistema de confirmación activado</p>
                         <p><span class="prompt">[REQUEST]</span> Se requiere confirmación de asistencia</p>
-                        <p><span class="prompt">[DEADLINE]</span> Confirmar antes del 10 de Febrero</p>
+                        <form id="rsvpForm" class="rsvp-form">
+                            <div class="form-group">
+                                <label class="prompt">[GUEST_NAME]</label>
+                                <input type="text" id="name" name="name" required placeholder="Ingresa tu nombre completo">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="prompt">[ATTENDANCE]</label>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="attending" value="yes" checked>
+                                        <span class="radio-custom"></span>
+                                        <span class="success">▣ VOYIR</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="attending" value="no">
+                                        <span class="radio-custom"></span>
+                                        <span class="prompt">☐ NO VOYIR</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="prompt">[COMPANIONS]</label>
+                                <select id="guests" name="guests">
+                                    <option value="0">Solo yo</option>
+                                    <option value="1">+1 acompañante</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="prompt">[PHONE] (opcional)</label>
+                                <input type="email" id="email" name="email" placeholder="correo@ejemplo.com">
+                            </div>
+
+                            <button type="submit" class="rsvp-button">
+                                <span class="button-text">ENVIAR CONFIRMACIÓN</span>
+                                <span class="loading-text" style="display: none;">PROCESANDO...</span>
+                            </button>
+                        </form>
                         <br>
                         <a href="#" class="rsvp-button" id="rsvpLink">CONFIRMAR ASISTENCIA</a>
                         <br><br>
@@ -417,7 +535,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="terminal">
             <div class="terminal-header">
                 <div class="terminal-buttons">
@@ -432,14 +550,16 @@
                 <div class="command">cat contact.conf</div>
                 <div class="output">
                     <p><span class="prompt">[CONTACT]</span> Para dudas o información adicional:</p>
-                    <p><span class="prompt">[PHONE]</span> +52 123 456 7890</p>
-                    <p><span class="prompt">[EMAIL]</span> babyshower.juliancito@email.com</p>
-                    <p><span class="prompt">[STATUS]</span> Sistema de mensajería habilitado 24/7</p>
+                    <p><span class="prompt">[PHONE]</span> +52 33 2063 3758</p>
+                    <p><span class="prompt">[EMAIL]</span> huicho.argumedo@email.com</p>
+                    <p><span class="prompt">[STATUS]</span> Estamos para servirle 24/7</p>
+                    <p><span class="prompt">[COMPANY]</span> Juliancito SA de CV</p>
+
                     <br>
                     <p style="text-align: center; color: #4ecdc4; font-size: 1.1rem;">
                         <span class="prompt cursor">[FINAL_MESSAGE]</span><br>
                         ¡Esperamos verte en la celebración de Juliancito!<br>
-                        >>> LOADING HAPPINESS... 100% COMPLETE <<<
+                        >>> LOADING BABY... 95% COMPLETE <<<
                     </p>
                 </div>
             </div>
@@ -459,7 +579,7 @@
             }
             typing();
         }
-        
+
         // Agregar efecto de parpadeo al cursor
         setInterval(() => {
             const cursors = document.querySelectorAll('.typing-effect');
